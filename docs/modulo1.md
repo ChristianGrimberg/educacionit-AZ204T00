@@ -1,5 +1,4 @@
 ---
-layout: page
 title:  "AZ-204T00 Developing Solutions for Microsoft Azure"
 permalink: /modulo1/
 ---
