@@ -5,6 +5,4 @@ github_username: ChristianGrimberg
 
 # Build settings
 markdown: kramdown
-theme: "ed."
-gems:
-  - jekyll-feed
+theme: "Fresh"
