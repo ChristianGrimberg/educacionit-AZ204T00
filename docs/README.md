@@ -22,4 +22,4 @@ Las aplicaciones pueden correr y escalar con facilidad tanto en entornos Windows
 
 ### Soporte de auto-escalado
 
-Azure App Service tiene la habilidad de escalar de forma vertical u horizontalmente. Dependiendo del uso de la aplicacion se pueden escalar los recursos sobre la maquina que corre de fondo y que aloja la misma.
+Azure App Service tiene la habilidad de escalar de forma vertical u horizontalmente. Dependiendo del uso de la aplicacion se pueden escalar de forma vertical los recursos de cantidad de nucleos y cantidad de memoria RAM sobre la maquina que corre de fondo y que aloja la misma. El escalado horizontal refiere a la habilidad para incrementar o decrecer la cantidad de instancias de maquinas virtuales en simultaneo corriendo para la aplicacion.
