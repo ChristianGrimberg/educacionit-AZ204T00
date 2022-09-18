@@ -2,7 +2,8 @@
 title: "AZ-204T00 Developing Solutions for Microsoft Azure"
 description: "Curso oficial Microsoft en [EducacionIT](https://www.educacionit.com/simulador-examen-az-204)"
 github_username: ChristianGrimberg
+show_downloads: false
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-tactile
+theme: jekyll-theme-cayman
