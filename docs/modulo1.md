@@ -39,3 +39,31 @@ El portal de Azure provee soporte integrado de Integracion Continua/Despliegue C
 Ya sea usando el portal de Azure como las herramientas de linea de comandos, se puede agregar facilmente ranuras de implementacion a una aplicacion de Azure App Service. Por cada instancia, se puede crear una ranura de despliegue de ensayos (_staging deployment slot_) para subir los cambios a testear en Azure. Cuando el codigo esta correcto, se puede intercambiar facilmente la ranura de ensayos con la ranura de produccion. Esto se puede hacer con unos simples click desde el portal de Azure.
 
 > __Nota:__ Las ranuras de implementacion estan disponibles unicamente en los niveles de planes __Standard__ y __Premium__.
+
+### App Service en Linux
+
+App Service tambien puede alojar aplicaciones nativas en Linux para las pilas de aplicaciones sopportadas. Tambien se puede correr contenedores de Linux particulares (_tambien conocido como Web App para Contenedores_). App Service en Linux soporta un numero especifico de imagenes preestablecidas, que permiten enfocarse unicamente en el despliegue del codigo. Los lenguajes soportados incluidos son:
+
+* Node.js
+* Java (JRE 8 & JRE 11)
+* PHP
+* Python
+* .NET Core
+* Ruby
+
+Si el lenguaje de la aplicacion no es soportado por las imagenes preestablecidas, se puede desplegar con una imagen particular.
+
+Los lenguajes y las versiones soportadas se actualizan periodicamente. Se puede obtener la lista actual utilizando el siguiente comando de Azure CLI:
+
+```pwsh
+az webapp list-runtimes --linux
+```
+
+#### Limitaciones
+
+App Service en Linux tiene las siguientes limitaciones:
+
+* App Service en Liux no es soportado en los niveles de planes __Shared__.
+* No se pueden mezclar aplicaciones de Windows y Linux en el mismo plan de App Service.
+* Historicamente, no se podia mezclar aplicaciones de Windows y Linux en el mismo Grupo de Recursos. Sin embargo, todos los Grupos de Recursos creados luego del 21 de enero de 2021 ya soportan este escenario. El soporte a los Grupos de Recursos creados previamente, se estan aplicando progresivamente en las diferentes regiones de Azure.
+* El portal de Azure muestra unicamente las caracteristicas que funcionan actualmente con las aplicaciones de Linux. A medida que las caracteristicas estan habilitadas, se van reportando en el portal de Azure.
