@@ -31,4 +31,10 @@ Azure App Service tiene la habilidad de escalar de forma vertical u horizontalme
 
 ### Soporte de Integracion Continua/Despliegue Continuo
 
-El portal de Azure provee soporte integrado de Integracion Continua/Despliegue Continuo con Azure DevOps, GitHub, Bitbucket, FTP o desde un repositorio local.
+El portal de Azure provee soporte integrado de Integracion Continua/Despliegue Continuo con Azure DevOps, GitHub, Bitbucket, FTP o desde un repositorio local desde la maquina de desarrollo. La conexion de la aplicacion web desde cualquiera de estos origenes implica que Azure App Service se encargue del resto, sincronizando los cambios actuales en el codigo y cualquier otro a futuro.
+
+### Ranuras de Implementacion (_Deployment slots_)
+
+Ya sea usando el portal de Azure como las herramientas de linea de comandos, se puede agregar facilmente ranuras de implementacion a una aplicacion de Azure App Service. Por cada instancia, se puede crear una ranura de despliegue de ensayos (_staging deployment slot_) para subir los cambios a testear en Azure. Cuando el codigo esta correcto, se puede intercambiar facilmente la ranura de ensayos con la ranura de produccion. Esto se puede hacer con unos simples click desde el portal de Azure.
+
+> __Nota:__ Las ranuras de implementacion estan disponibles unicamente en los niveles de planes __Standard__ y __Premium__.
