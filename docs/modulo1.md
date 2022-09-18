@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Modulo 1: Explorar Azure App Service"
 ---
 
