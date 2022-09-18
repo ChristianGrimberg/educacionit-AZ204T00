@@ -1,11 +1,12 @@
 ---
-title:  "AZ-204T00 Developing Solutions for Microsoft Azure"
+title:  "Modulo 1"
+description: "AZ-204T00 Developing Solutions for Microsoft Azure"
 permalink: /modulo1/
 ---
 
 [<- Atras](index.md)
 
-# Modulo 1: Explorar Azure App Service
+# Explorar Azure App Service
 ## Examinar Azure App Service
 
 Azure App Service es un servicio basado en HTTP para alojar aplicaciones de tipo:
