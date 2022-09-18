@@ -1,10 +1,10 @@
 # Site settings
 title: "AZ-204T00 Developing Solutions for Microsoft Azure"
-description: "Curso oficial de Microsoft en EducacionIT"
+description: "Curso oficial Microsoft en [EducacionIT](https://www.educacionit.com/simulador-examen-az-204)"
 github_username: ChristianGrimberg
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: "ed."
 gems:
   - jekyll-feed
