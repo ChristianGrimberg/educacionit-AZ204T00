@@ -453,5 +453,14 @@ $RECYCLE.BIN/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Other files
+##
+## Jekyll files
+##
+_site
+.sass-cache
+.jekyll-metadata
+
+##
+## Other files
+##
 core
