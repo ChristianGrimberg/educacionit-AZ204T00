@@ -4,7 +4,7 @@ description: "AZ-204T00 Developing Solutions for Microsoft Azure"
 permalink: /modulo1/
 ---
 
-[<- Atras](index.md)
+[⏪ Ir al inicio](index.md)
 
 # Explorar Azure App Service
 ## Examinar Azure App Service
@@ -109,3 +109,5 @@ En los niveles __Free__ y __Shared__ una aplicacion recibe minutos de CPU en una
 * Si estan habilitados los registros de diagnostico (_diagnostic logs_), la ejecucion de copias de seguridad o la ejecucion de WebJobs, todos ellos utilizan los ciclos de CPU y la memoria de las propias maquinas virtuales.
 
 De esta manera, el plan de App Service es la __Unidad de Escalado__ (_Scale Unit_) de las aplicaciones de App Service. Si el plan es configurado para ejecutar cinco instancias de maquina virtual, entonces todas las aplicacion dentro del plan se ejecutan en las mismas cinco instancias. Si el plan es configurado para autoescalado, entonces todas las aplicaciones en el plan son escaladas en conjunto segun las configuraciones de autoescalado.
+
+[⏪ Ir al inicio](index.md)
