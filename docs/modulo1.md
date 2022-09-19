@@ -98,3 +98,14 @@ El nivel de precios de un plan de App Service determina que caracteristicas se p
 * __Consumption:__ Este nivel esta disponible unicamente para aplicaciones de tipo funcion. Este nivel escala las funciones dinamicamente dependiendo de la carga de trabajo.
 
 > __Nota:__ Los planes de alojamiento __Free__ y __Shared__ de App Service son niveles básicos que se ejecutan en las mismas máquinas virtuales de Azure como otras aplicaciones de App Service. Algunas aplicaciones podrian pertenecer a otros clientes. Estos niveles tienen la intencion de ser usadas unicamente para proposito de desarrollo o para pruebas.
+
+### Como se ejecutan y escalan las aplicaciones
+
+En los niveles __Free__ y __Shared__ una aplicacion recibe minutos de CPU en una instancia de maquina virtual compartida y no se puede escalar horizontalmente. En otros niveles, una aplicacion se ejecuta y escalada de la siguiente forma:
+
+* Una aplicacion se ejecuta en todas las instancias de maquina virtual configurada en el plan de App Service.
+* Si varias aplicaciones estan en el mismo plan de App Service, todas ellas comparten las mismas instancias de maquina virtual.
+* Si se tiene varias ranuras de implementacion en una aplicacion, cada ranura se ejecuta inclusive en las mismas instancias de maquina virtual.
+* Si estan habilitados los registros de diagnostico (_diagnostic logs_), la ejecucion de copias de seguridad o la ejecucion de WebJobs, todos ellos utilizan los ciclos de CPU y la memoria de las propias maquinas virtuales.
+
+De esta manera, el plan de App Service es la __Unidad de Escalado__ (_Scale Unit_) de las aplicaciones de App Service. Si el plan es configurado para ejecutar cinco instancias de maquina virtual, entonces todas las aplicacion dentro del plan se ejecutan en las mismas cinco instancias. Si el plan es configurado para autoescalado, entonces todas las aplicaciones en el plan son escaladas en conjunto segun las configuraciones de autoescalado.
