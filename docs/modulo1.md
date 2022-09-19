@@ -67,3 +67,34 @@ App Service en Linux tiene las siguientes limitaciones:
 * No se pueden mezclar aplicaciones de Windows y Linux en el mismo plan de App Service.
 * Historicamente, no se podia mezclar aplicaciones de Windows y Linux en el mismo Grupo de Recursos. Sin embargo, todos los Grupos de Recursos creados luego del 21 de enero de 2021 ya soportan este escenario. El soporte a los Grupos de Recursos creados previamente, se estan aplicando progresivamente en las diferentes regiones de Azure.
 * El portal de Azure muestra unicamente las caracteristicas que funcionan actualmente con las aplicaciones de Linux. A medida que las caracteristicas estan habilitadas, se van reportando en el portal de Azure.
+
+## Examinar planes de Azure App Service
+
+En App Service una aplicacion siempre funciona sobre un _Plan de Azure App Service_. Un plan de App Service define un conjunto de recursos de computo para que corra la aplicacion. Una o mas aplicaciones pueden ser configuradas para ejecutarse en los mismos recursos de computo (_o mejor dicho, en el mismo plan de App Service_). Ademas, _Azure Functions_ tambien tiene la opcion de correr en un plan de App Service.
+
+Cuando se crea un plan de App Service en una cierta region (por ejemplo, en el oeste de europa), un conjunto de recursos de computo es creado para ese plan en esa region. Cualquier aplicacion que se coloque dentro de ese plan de App Service va a correr con esos mismos recursos que se definieron en el plan. En cada plan de App Service se define:
+
+* Region
+* Numero de instancias de Maquinas Virtuales
+* Tamaño de las instancias de VM:
+    * _Small_
+    * _Medium_
+    * _Large_
+* Nivel de Precios (_Pricing tier_):
+    * _Free_
+    * _Shared_
+    * _Basic_
+    * _Standard_
+    * _Premium_
+    * _PremiumV2_
+    * _PremiumV3_
+    * _Isolated_
+
+El nivel de precios de un plan de App Service determina que caracteristicas se pueden obtener cuanto se debe abonar por el plan. Hay varias categorias de niveles de precios:
+
+* __Shared compute:__ Tanto __Free__ como __Shared__ comparten el grupo de los recursos de las aplicaciones conlas aplicaciones de otros clientes. Estos niveles asignar cuotas de CPU para cada aplicacion que se ejecuta en los recursos compartidos, y los recursos no pueden escalar de forma horizontal.
+* __Dedicated compute:__ Los niveles __Basic__, __Standard__, __Premium__, __PremiumV2__ y __PremiumV3__ ejecutan aplicaciones en maquinas virtuales dedicadas. Solo las aplicaciones que estan dentro del mismo plan de App Service pueden compartir los mismos recursos de computo. Cuanto mas alto sea el nivel, más instancias de maquinas virtuales estarán disponibles para el escalado horizontal.
+* __Isolated:__ Este nivel ejecuta maquinas virtuales dedicadas en redes dedicadas de _Azure Virtual Network_. Este nivel proporciona aislamiento de red además del aislamiento de computo para las aplicaciones. Tambien provee el maximo de las capacidades de escalamiento horizontal.
+* __Consumption:__ Este nivel esta disponible unicamente para aplicaciones de tipo funcion. Este nivel escala las funciones dinamicamente dependiendo de la carga de trabajo.
+
+> __Nota:__ Los planes de alojamiento __Free__ y __Shared__ de App Service son niveles básicos que se ejecutan en las mismas máquinas virtuales de Azure como otras aplicaciones de App Service. Algunas aplicaciones podrian pertenecer a otros clientes. Estos niveles tienen la intencion de ser usadas unicamente para proposito de desarrollo o para pruebas.
