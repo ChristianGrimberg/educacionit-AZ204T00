@@ -110,4 +110,18 @@ En los niveles __Free__ y __Shared__ una aplicacion recibe minutos de CPU en una
 
 De esta manera, el plan de App Service es la __Unidad de Escalado__ (_Scale Unit_) de las aplicaciones de App Service. Si el plan es configurado para ejecutar cinco instancias de maquina virtual, entonces todas las aplicacion dentro del plan se ejecutan en las mismas cinco instancias. Si el plan es configurado para autoescalado, entonces todas las aplicaciones en el plan son escaladas en conjunto segun las configuraciones de autoescalado.
 
+### Que sucede si la aplicacion necesita mas capacidad y caracteristicas
+
+El plan de App Service puede escalar verticalmente hacia arriba o abajo en cualquier momento. Si la aplicacion se encuentra en el mismo plan que otras aplicaciones, posiblemente se necesite mejorar el rendimiento de la aplicacion aislando los recursos de computo. Esto se puede hacer moviendo la aplicacion hacia un plan separado de App Service.
+
+Se puede ahorrar dinero potencialmente colocando multiples aplicaciones dentro de un mismo plan de App Service. Sin embargo, desde que en el mismo plan se comparten los mismos recursos de computo, se necesita comprender la capacidad del plan existente y cual es la carga esperada para la nueva aplicacion.
+
+Se puede aislar la aplicacion en un nuevo plan de App Service cuando:
+
+* La aplicacion es de uso intensivo de recursos.
+* Se necesita escalar la aplicacion independientemente de otras aplicaciones del plan existente.
+* La aplicacion requiere recursos de un region geografica diferente.
+
+De esta forma se puede asignar un nuevo conjunto de recursos para la aplicacion y obtener un mejor control de ganancia de las aplicaciones.
+
 [⏪ Ir al inicio](index.md)
