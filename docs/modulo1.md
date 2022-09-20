@@ -147,4 +147,8 @@ Existen algunas opciones que se puede usar para subir manualmente el codigo haci
 * __Zip deploy:__ Se puede usar `curl` o una utilidad HTTP similar para enviar un archivo comprimido con los archivos de la aplicacion hacia App Service.
 * __FTP/S:__ FTP o FTPS is un medio tradicional para subir el codigo hacia muchos entornos de alojamiento, incluyendo App Service.
 
+### Uso de ranuras de implementacion
+
+Cuando sea posible, se pueden usar las ranuras de implementacion cuando se depliega una nueva compilacion en produccion. Cuando se usa un plan de nivel Standard o superior de App Service, se puede desplegar la aplicacion a un entorno de ensayos y luego intercambiarlo con la ranura de produccion. La operacion de intercambio prepara las instancias de trabajo necesarias para que coincidan con la escala de produccion, eliminando asi el tiempo de inactividad.
+
 [⏪ Ir al inicio](index.md)
