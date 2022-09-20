@@ -124,4 +124,27 @@ Se puede aislar la aplicacion en un nuevo plan de App Service cuando:
 
 De esta forma se puede asignar un nuevo conjunto de recursos para la aplicacion y obtener un mejor control de ganancia de las aplicaciones.
 
+## Despliegue hacia App Service
+
+Cada equipo de desarrollo cuenta con requerimientos unicos que pueden hacer que una canalizacion de implementación eficiente se haga dificil en cualquier servicio en la nube. App Service soporte ambos despliegues automatizados y manuales.
+
+### Despliegue automatico
+
+El despliegue automatico (_o mejor dicho, la integracion continua_), es un proceso utilizado para subir nuevas caracteristicas y resolucion de errores en un patron rapidoy repetitivo con un minimo impacto para los usuarios finales.
+
+Azure soporta el despliegue automatico directamente desde varios origenes. Las siguientes opciones estan disponibles:
+
+* __Azure DevOps:__ Se puede subir el codigo hacia Azure DevOps, compilar el codigo en la nube, ejecutar los testeos, generar un lanzamiento desde el codigo, y finalmente, subir el codigo hacia Azure Web App.
+* __GitHub:__ Azure soporta despliegues automatizados directamente desde GitHub. Cuando se conecta el repositorio de GitHub con Azure para el despliegue automatizado, cualquier cambio que se suba en la rama de produccion en GitHub se desplegara automaticamente hacia Azure Web App.
+* __Bitbucket:__ Con las mismas similitudes que GitHub, se puede configurar un despliegue automatizado con Bitbucket.
+
+### Despliegue manual
+
+Existen algunas opciones que se puede usar para subir manualmente el codigo hacia Azure:
+
+* __Git:__ App Service cuenta con una URL de Git para agregarse como un repositorio remoto. Haciendo un `push` al repositorio remoto desplegara la aplicacion.
+* __CLI:__ `webapp up` es una caracteristica de los comandos de la interface de comando de `az` que empaqueta la aplicacion y la despliega. A diferencia de otros metodos de despliegue, `az webapp up` puede crear una nueva aplicacion de App Service si no esta creada previamente.
+* __Zip deploy:__ Se puede usar `curl` o una utilidad HTTP similar para enviar un archivo comprimido con los archivos de la aplicacion hacia App Service.
+* __FTP/S:__ FTP o FTPS is un medio tradicional para subir el codigo hacia muchos entornos de alojamiento, incluyendo App Service.
+
 [⏪ Ir al inicio](index.md)
