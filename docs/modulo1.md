@@ -151,4 +151,27 @@ Existen algunas opciones que se puede usar para subir manualmente el codigo haci
 
 Cuando sea posible, se pueden usar las ranuras de implementacion cuando se depliega una nueva compilacion en produccion. Cuando se usa un plan de nivel Standard o superior de App Service, se puede desplegar la aplicacion a un entorno de ensayos y luego intercambiarlo con la ranura de produccion. La operacion de intercambio prepara las instancias de trabajo necesarias para que coincidan con la escala de produccion, eliminando asi el tiempo de inactividad.
 
+## Explorar la autenticacion y la autorizacion en App Service
+
+Azure App Service proporciona soporte integrado de autenticacion y autorizacion, de manera que los usuarios puedan iniciar sesion y acceder a los datos escribiendo un minimo de codigo o sin codigo en las aplicaciones Web, API o moviles de tipo back-end, inclusive Azure Functions.
+
+### Porque utilizar la autenticacion integrada
+
+No es requerido utilizar App Service para la autenticacion y la autorizacion. Muchos _frameworks_ Web estan empaquetados con caracteristicas de seguridad y se pueden utilizar a gusto. Si se requiere mayor flexibilidad que laa que provee Azure App Service, se puede escribir utilitarios propios inclusive.
+
+La caracteristica de autenticacion integrada para Azure App Service y Azure Functions puede ahorrar tiempo y esfuerzo proporcionando una autenticacion lista para usar con proveedores de identidad federados, para enfocarse en el resto de la aplicacion.
+
+* Azure App Service permite integrar una variedad de capacidades de autenticacion dentro de una aplicacion Web o API sin la necesidad de implementarlo por uno mismo.
+* Se encuentra construido directamente dentro de la plataforma y no requiere ningun lenguaje en particular, SDK, expertiz en seguridad o incluso ningun codigo para utilizar.
+* Se puede integrar con multiples proveedores de identidad, por ejemplo, Azure AD, Facebook, Google, Twitter.
+
+### Proveedores de identidad
+
+Azure App Services utiliza identidad federada con cada proveedor de identidad de terceros que administra identidades de usuarios y el flujo de autenticacion por uno. Los siguientes proveedores de identidad estan disponibles por defecto:
+
+Provider                    | Endpoint de inicio de sesion
+--------------------------- | ----------------------------
+Microsoft Identity Platform | `/.auth/login/aad`
+Facebook                    | `/.auth/login/facebook`
+
 [⏪ Ir al inicio](index.md)
