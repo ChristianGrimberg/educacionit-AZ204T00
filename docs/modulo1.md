@@ -9,169 +9,37 @@ permalink: /modulo01/
 # Explorar Azure App Service
 ## Examinar Azure App Service
 
-Azure App Service es un servicio basado en HTTP para alojar aplicaciones de tipo:
+Azure App Service es un servicio basado en HTTP para hospedar aplicaciones web, API de REST y back-ends para dispositivos móviles. Puede desarrollarlo en su lenguaje de programación preferido, ya sea. NET, .NET Core, Java, Ruby, Node.js, PHP o Python. Las aplicaciones se ejecutan y escalan fácilmente en los entornos Windows y Linux.
 
-* Web
-* REST API
-* Moviles de tipo back-end
+### Compatibilidad integrada con el escalado automático
 
-Se puede utilizar los siguientes lenguajes:
+En Azure App Service se integra la capacidad de escalar o reducir verticalmente, o bien escalar o reducir horizontalmente. En función del uso de la aplicación web se puede escalar o reducir verticalmente los recursos de la máquina subyacente en la que se hospeda la aplicación web. Los recursos incluyen el número de núcleos o la cantidad de memoria RAM disponible. El escalado o la reducción horizontal es la capacidad de aumentar o disminuir el número de instancias de máquina que ejecutan la aplicación web.
 
-* .NET
-* Java
-* Ruby
-* Node.js
-* PHP
-* Python
+### Compatibilidad con la integración e implementación continuas
 
-Las aplicaciones pueden correr y escalar con facilidad tanto en entornos Windows y Linux.
+Azure Portal proporciona integración e implementación continuas listas para usar con Azure DevOps, GitHub, Bitbucket, FTP o un repositorio de GIT local en el equipo de desarrollo. Conecte su aplicación web con cualquiera de los orígenes anteriores y App Service se encargará del resto mediante la sincronización automática del código y los futuros cambios en el código en la aplicación web.
 
-### Soporte de auto-escalado
+### Ranuras de implementación
 
-Azure App Service tiene la habilidad de escalar de forma vertical u horizontalmente. Dependiendo del uso de la aplicacion se pueden escalar de forma vertical los recursos de cantidad de nucleos y cantidad de memoria RAM sobre la maquina que corre de fondo y que aloja la misma. El escalado horizontal refiere a la habilidad para incrementar o decrecer la cantidad de instancias de maquinas virtuales en simultaneo corriendo para la aplicacion.
-
-### Soporte de Integracion Continua/Despliegue Continuo
-
-El portal de Azure provee soporte integrado de Integracion Continua/Despliegue Continuo con Azure DevOps, GitHub, Bitbucket, FTP o desde un repositorio local desde la maquina de desarrollo. La conexion de la aplicacion web desde cualquiera de estos origenes implica que Azure App Service se encargue del resto, sincronizando los cambios actuales en el codigo y cualquier otro a futuro.
-
-### Ranuras de Implementacion (_Deployment slots_)
-
-Ya sea usando el portal de Azure como las herramientas de linea de comandos, se puede agregar facilmente ranuras de implementacion a una aplicacion de Azure App Service. Por cada instancia, se puede crear una ranura de despliegue de ensayos (_staging deployment slot_) para subir los cambios a testear en Azure. Cuando el codigo esta correcto, se puede intercambiar facilmente la ranura de ensayos con la ranura de produccion. Esto se puede hacer con unos simples click desde el portal de Azure.
-
-> __Nota:__ Las ranuras de implementacion estan disponibles unicamente en los niveles de planes __Standard__ y __Premium__.
+Al implementar la aplicación web, la aplicación web en Linux, el back-end móvil o la aplicación API en Azure App Service, puede implementarlas en una ranura de implementación independiente en lugar de en la ranura de producción predeterminada si realiza la ejecución en el nivel de plan Estándar, Premium o Aislado de App Service. Las ranuras de implementación son aplicaciones activas con sus propios nombres de host. Los elementos de contenido y configuraciones de aplicaciones se pueden intercambiar entre dos ranuras de implementación, incluida la ranura de producción.
 
 ### App Service en Linux
 
-App Service tambien puede alojar aplicaciones nativas en Linux para las pilas de aplicaciones sopportadas. Tambien se puede correr contenedores de Linux particulares (_tambien conocido como Web App para Contenedores_). App Service en Linux soporta un numero especifico de imagenes preestablecidas, que permiten enfocarse unicamente en el despliegue del codigo. Los lenguajes soportados incluidos son:
+App Service también puede hospedar las aplicaciones Web de forma nativa en Linux para las pilas de aplicaciones admitidas. Además, puede ejecutar contenedores de Linux personalizados (también conocidos como Web App for Containers). App Service en Linux admite varias imágenes integradas específicas del lenguaje. Solo implemente el código. Los lenguajes compatibles incluyen: Node.js, Java (JRE 8 y JRE 11), PHP, Python, .NET Core y Ruby. Si el motor de tiempo de ejecución que requiere la aplicación no se admite en las imágenes integradas, puede implementarlo con un contenedor personalizado.
 
-* Node.js
-* Java (JRE 8 & JRE 11)
-* PHP
-* Python
-* .NET Core
-* Ruby
+Los idiomas y sus versiones admitidas se actualizan de forma periódica. Puede recuperar la lista actual mediante el comando siguiente en Cloud Shell.
 
-Si el lenguaje de la aplicacion no es soportado por las imagenes preestablecidas, se puede desplegar con una imagen particular.
-
-Los lenguajes y las versiones soportadas se actualizan periodicamente. Se puede obtener la lista actual utilizando el siguiente comando de Azure CLI:
-
-```pwsh
-az webapp list-runtimes --linux
+```bash
+az webapp list-runtimes --os-type linux
 ```
 
 #### Limitaciones
 
-App Service en Linux tiene las siguientes limitaciones:
+App Service en Linux tiene algunas limitaciones:
 
-* App Service en Liux no es soportado en los niveles de planes __Shared__.
-* No se pueden mezclar aplicaciones de Windows y Linux en el mismo plan de App Service.
-* Historicamente, no se podia mezclar aplicaciones de Windows y Linux en el mismo Grupo de Recursos. Sin embargo, todos los Grupos de Recursos creados luego del 21 de enero de 2021 ya soportan este escenario. El soporte a los Grupos de Recursos creados previamente, se estan aplicando progresivamente en las diferentes regiones de Azure.
-* El portal de Azure muestra unicamente las caracteristicas que funcionan actualmente con las aplicaciones de Linux. A medida que las caracteristicas estan habilitadas, se van reportando en el portal de Azure.
-
-## Examinar planes de Azure App Service
-
-En App Service una aplicacion siempre funciona sobre un _Plan de Azure App Service_. Un plan de App Service define un conjunto de recursos de computo para que corra la aplicacion. Una o mas aplicaciones pueden ser configuradas para ejecutarse en los mismos recursos de computo (_o mejor dicho, en el mismo plan de App Service_). Ademas, _Azure Functions_ tambien tiene la opcion de correr en un plan de App Service.
-
-Cuando se crea un plan de App Service en una cierta region (por ejemplo, en el oeste de europa), un conjunto de recursos de computo es creado para ese plan en esa region. Cualquier aplicacion que se coloque dentro de ese plan de App Service va a correr con esos mismos recursos que se definieron en el plan. En cada plan de App Service se define:
-
-* Region
-* Numero de instancias de Maquinas Virtuales
-* Tamaño de las instancias de VM:
-    * _Small_
-    * _Medium_
-    * _Large_
-* Nivel de Precios (_Pricing tier_):
-    * _Free_
-    * _Shared_
-    * _Basic_
-    * _Standard_
-    * _Premium_
-    * _PremiumV2_
-    * _PremiumV3_
-    * _Isolated_
-
-El nivel de precios de un plan de App Service determina que caracteristicas se pueden obtener cuanto se debe abonar por el plan. Hay varias categorias de niveles de precios:
-
-* __Shared compute:__ Tanto __Free__ como __Shared__ comparten el grupo de los recursos de las aplicaciones conlas aplicaciones de otros clientes. Estos niveles asignar cuotas de CPU para cada aplicacion que se ejecuta en los recursos compartidos, y los recursos no pueden escalar de forma horizontal.
-* __Dedicated compute:__ Los niveles __Basic__, __Standard__, __Premium__, __PremiumV2__ y __PremiumV3__ ejecutan aplicaciones en maquinas virtuales dedicadas. Solo las aplicaciones que estan dentro del mismo plan de App Service pueden compartir los mismos recursos de computo. Cuanto mas alto sea el nivel, más instancias de maquinas virtuales estarán disponibles para el escalado horizontal.
-* __Isolated:__ Este nivel ejecuta maquinas virtuales dedicadas en redes dedicadas de _Azure Virtual Network_. Este nivel proporciona aislamiento de red además del aislamiento de computo para las aplicaciones. Tambien provee el maximo de las capacidades de escalamiento horizontal.
-* __Consumption:__ Este nivel esta disponible unicamente para aplicaciones de tipo funcion. Este nivel escala las funciones dinamicamente dependiendo de la carga de trabajo.
-
-> __Nota:__ Los planes de alojamiento __Free__ y __Shared__ de App Service son niveles básicos que se ejecutan en las mismas máquinas virtuales de Azure como otras aplicaciones de App Service. Algunas aplicaciones podrian pertenecer a otros clientes. Estos niveles tienen la intencion de ser usadas unicamente para proposito de desarrollo o para pruebas.
-
-### Como se ejecutan y escalan las aplicaciones
-
-En los niveles __Free__ y __Shared__ una aplicacion recibe minutos de CPU en una instancia de maquina virtual compartida y no se puede escalar horizontalmente. En otros niveles, una aplicacion se ejecuta y escalada de la siguiente forma:
-
-* Una aplicacion se ejecuta en todas las instancias de maquina virtual configurada en el plan de App Service.
-* Si varias aplicaciones estan en el mismo plan de App Service, todas ellas comparten las mismas instancias de maquina virtual.
-* Si se tiene varias ranuras de implementacion en una aplicacion, cada ranura se ejecuta inclusive en las mismas instancias de maquina virtual.
-* Si estan habilitados los registros de diagnostico (_diagnostic logs_), la ejecucion de copias de seguridad o la ejecucion de WebJobs, todos ellos utilizan los ciclos de CPU y la memoria de las propias maquinas virtuales.
-
-De esta manera, el plan de App Service es la __Unidad de Escalado__ (_Scale Unit_) de las aplicaciones de App Service. Si el plan es configurado para ejecutar cinco instancias de maquina virtual, entonces todas las aplicacion dentro del plan se ejecutan en las mismas cinco instancias. Si el plan es configurado para autoescalado, entonces todas las aplicaciones en el plan son escaladas en conjunto segun las configuraciones de autoescalado.
-
-### Que sucede si la aplicacion necesita mas capacidad y caracteristicas
-
-El plan de App Service puede escalar verticalmente hacia arriba o abajo en cualquier momento. Si la aplicacion se encuentra en el mismo plan que otras aplicaciones, posiblemente se necesite mejorar el rendimiento de la aplicacion aislando los recursos de computo. Esto se puede hacer moviendo la aplicacion hacia un plan separado de App Service.
-
-Se puede ahorrar dinero potencialmente colocando multiples aplicaciones dentro de un mismo plan de App Service. Sin embargo, desde que en el mismo plan se comparten los mismos recursos de computo, se necesita comprender la capacidad del plan existente y cual es la carga esperada para la nueva aplicacion.
-
-Se puede aislar la aplicacion en un nuevo plan de App Service cuando:
-
-* La aplicacion es de uso intensivo de recursos.
-* Se necesita escalar la aplicacion independientemente de otras aplicaciones del plan existente.
-* La aplicacion requiere recursos de un region geografica diferente.
-
-De esta forma se puede asignar un nuevo conjunto de recursos para la aplicacion y obtener un mejor control de ganancia de las aplicaciones.
-
-## Despliegue hacia App Service
-
-Cada equipo de desarrollo cuenta con requerimientos unicos que pueden hacer que una canalizacion de implementación eficiente se haga dificil en cualquier servicio en la nube. App Service soporte ambos despliegues automatizados y manuales.
-
-### Despliegue automatico
-
-El despliegue automatico (_o mejor dicho, la integracion continua_), es un proceso utilizado para subir nuevas caracteristicas y resolucion de errores en un patron rapidoy repetitivo con un minimo impacto para los usuarios finales.
-
-Azure soporta el despliegue automatico directamente desde varios origenes. Las siguientes opciones estan disponibles:
-
-* __Azure DevOps:__ Se puede subir el codigo hacia Azure DevOps, compilar el codigo en la nube, ejecutar los testeos, generar un lanzamiento desde el codigo, y finalmente, subir el codigo hacia Azure Web App.
-* __GitHub:__ Azure soporta despliegues automatizados directamente desde GitHub. Cuando se conecta el repositorio de GitHub con Azure para el despliegue automatizado, cualquier cambio que se suba en la rama de produccion en GitHub se desplegara automaticamente hacia Azure Web App.
-* __Bitbucket:__ Con las mismas similitudes que GitHub, se puede configurar un despliegue automatizado con Bitbucket.
-
-### Despliegue manual
-
-Existen algunas opciones que se puede usar para subir manualmente el codigo hacia Azure:
-
-* __Git:__ App Service cuenta con una URL de Git para agregarse como un repositorio remoto. Haciendo un `push` al repositorio remoto desplegara la aplicacion.
-* __CLI:__ `webapp up` es una caracteristica de los comandos de la interface de comando de `az` que empaqueta la aplicacion y la despliega. A diferencia de otros metodos de despliegue, `az webapp up` puede crear una nueva aplicacion de App Service si no esta creada previamente.
-* __Zip deploy:__ Se puede usar `curl` o una utilidad HTTP similar para enviar un archivo comprimido con los archivos de la aplicacion hacia App Service.
-* __FTP/S:__ FTP o FTPS is un medio tradicional para subir el codigo hacia muchos entornos de alojamiento, incluyendo App Service.
-
-### Uso de ranuras de implementacion
-
-Cuando sea posible, se pueden usar las ranuras de implementacion cuando se depliega una nueva compilacion en produccion. Cuando se usa un plan de nivel Standard o superior de App Service, se puede desplegar la aplicacion a un entorno de ensayos y luego intercambiarlo con la ranura de produccion. La operacion de intercambio prepara las instancias de trabajo necesarias para que coincidan con la escala de produccion, eliminando asi el tiempo de inactividad.
-
-## Explorar la autenticacion y la autorizacion en App Service
-
-Azure App Service proporciona soporte integrado de autenticacion y autorizacion, de manera que los usuarios puedan iniciar sesion y acceder a los datos escribiendo un minimo de codigo o sin codigo en las aplicaciones Web, API o moviles de tipo back-end, inclusive Azure Functions.
-
-### Porque utilizar la autenticacion integrada
-
-No es requerido utilizar App Service para la autenticacion y la autorizacion. Muchos _frameworks_ Web estan empaquetados con caracteristicas de seguridad y se pueden utilizar a gusto. Si se requiere mayor flexibilidad que laa que provee Azure App Service, se puede escribir utilitarios propios inclusive.
-
-La caracteristica de autenticacion integrada para Azure App Service y Azure Functions puede ahorrar tiempo y esfuerzo proporcionando una autenticacion lista para usar con proveedores de identidad federados, para enfocarse en el resto de la aplicacion.
-
-* Azure App Service permite integrar una variedad de capacidades de autenticacion dentro de una aplicacion Web o API sin la necesidad de implementarlo por uno mismo.
-* Se encuentra construido directamente dentro de la plataforma y no requiere ningun lenguaje en particular, SDK, expertiz en seguridad o incluso ningun codigo para utilizar.
-* Se puede integrar con multiples proveedores de identidad, por ejemplo, Azure AD, Facebook, Google, Twitter.
-
-### Proveedores de identidad
-
-Azure App Services utiliza identidad federada con cada proveedor de identidad de terceros que administra identidades de usuarios y el flujo de autenticacion por uno. Los siguientes proveedores de identidad estan disponibles por defecto:
-
-Provider                    | Endpoint de inicio de sesion
---------------------------- | ----------------------------
-Microsoft Identity Platform | `/.auth/login/aad`
-Facebook                    | `/.auth/login/facebook`
+* App Service en Linux no se admite en el plan de tarifa Compartido.
+* No se pueden mezclar las aplicaciones Windows y Linux en el mismo plan de App Service.
+* Históricamente, no se podían mezclar aplicaciones de Windows y Linux en el mismo grupo de recursos. Sin embargo, todos los grupos de recursos creados a partir del 21 de enero de 2021 admiten este escenario. La compatibilidad con los grupos de recursos creados antes del 21 de enero de 2021 se implementará en breve en las regiones de Azure (incluidas las regiones de nube nacional).
+* Azure Portal solo muestra las características que funcionan actualmente para las aplicaciones Linux. A medida que se habiliten las características, se activarán en el portal.
 
 [⏪ Ir al inicio](index.md)
