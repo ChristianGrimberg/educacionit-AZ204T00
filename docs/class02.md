@@ -10,7 +10,7 @@ permalink: /class02/
 
 1. Crear un nuevo grupo de recursos
     ```pwsh
-    New-AzResourceGroup -Name educacionit-clase02 -Location EastUs2
+    az group create -n educacionit-clase02 -l EastUs2
     ```
 2. Crear Plan de App Service
     ```pwsh
@@ -23,4 +23,8 @@ permalink: /class02/
 4. Despligue de la aplicacion desde el directorio de desarrollo
     ```pwsh
      az webapp up -g educacionit-clase02 -n class02-web01 -p class02-plan --runtime "dotnet:6"
+    ```
+5. Eliminacion del grupo de recursos
+    ```pwsh
+    az group delete -n educacionit-clase02 --no-wait
     ```
