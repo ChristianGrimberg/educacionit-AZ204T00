@@ -8,6 +8,8 @@ permalink: /class02/
 
 # Clase 02
 
+## Laboratorios
+
 1. Crear un nuevo grupo de recursos
     ```pwsh
     az group create -n educacionit-clase02 -l EastUs2
