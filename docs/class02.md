@@ -7,3 +7,20 @@ permalink: /class02/
 [⏪ Ir al inicio](index.md)
 
 # Clase 02
+
+1. Crear un nuevo grupo de recursos
+    ```pwsh
+    New-AzResourceGroup -Name educacionit-clase02 -Location EastUs2
+    ```
+2. Crear Plan de App Service
+    ```pwsh
+    az appservice plan create -g educacionit-clase02 -n class02-plan --sku F1
+    ```
+3. Crear WebApp en App Service
+    ```pwsh
+    az webapp create -g educacionit-clase02 -n class02-web01 -p class02-plan
+    ```
+4. Despligue de la aplicacion desde el directorio de desarrollo
+    ```pwsh
+     az webapp up -g educacionit-clase02 -n class02-web01 -p class02-plan --runtime "dotnet:6"
+    ```

@@ -36,5 +36,6 @@
     "omnisharp.enableRoslynAnalyzers": true,
     "omnisharp.useModernNet": true,
     "omnisharp.disableMSBuildDiagnosticWarning": true,
-    "omnisharp.enableImportCompletion": true
+    "omnisharp.enableImportCompletion": true,
+    "appService.defaultWebAppToDeploy": "None"
 }
