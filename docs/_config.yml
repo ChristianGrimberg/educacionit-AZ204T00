@@ -2,8 +2,19 @@
 title: "AZ-204T00 Developing Solutions for Microsoft Azure"
 description: "Curso AZ-204T00 en EducacionIT"
 github_username: ChristianGrimberg
-show_downloads: false
+author: "Christian Grimberg"
 
 # Build settings
+#theme: jekyll-theme-cayman
+remote_theme: MicrosoftLearning/Jekyll-Theme
+header_pages:
+  - index.html
+plugins:
+  - jekyll-sitemap
+  - jekyll-mentions
+  - jemoji
 markdown: kramdown
-theme: jekyll-theme-cayman
+kramdown:
+   syntax_highlighter_opts:
+      disable : true
+show_downloads: false
