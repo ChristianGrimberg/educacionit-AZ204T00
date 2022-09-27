@@ -1,5 +1,7 @@
 ---
-title:  "Contenido"
+title: "Contenido"
+permalink: index.html
+layout: home
 ---
 
 # Modulos
