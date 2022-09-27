@@ -2,6 +2,7 @@
 title:  "Clase 2"
 description: "AZ-204T00 Developing Solutions for Microsoft Azure"
 permalink: class02.html
+layout: theme
 ---
 
 [⏪ Ir al inicio](index.md)
@@ -44,3 +45,5 @@ permalink: class02.html
     ```pwsh
     az group delete -n educacionit-clase02 --no-wait
     ```
+
+[⏪ Ir al inicio](index.md)

@@ -2,6 +2,7 @@
 title:  "Clase 1"
 description: "AZ-204T00 Developing Solutions for Microsoft Azure"
 permalink: class01.html
+layout: theme
 ---
 
 [⏪ Ir al inicio](index.md)
@@ -12,3 +13,5 @@ permalink: class01.html
 
 * Acceso al material teorico en [Skillpipe](https://www.skillpipe.com/#/bookshelf/books)
 * Descarga de laboratorios base desde [Microsoft Learning AZ-204](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure/archive/refs/heads/master.zip)
+
+[⏪ Ir al inicio](index.md)
