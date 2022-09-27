@@ -19,13 +19,17 @@ permalink: class02.html
 
 ### Nueva aplicacion Web API
 
+1. Directorio de trabajo
+    ```pwsh
+    cd labs/class02/Api
+    ```
 1. Crear Plan de App Service
     ```pwsh
-    az appservice plan create -g educacionit-clase02 -n app-plan-educacionit --sku F1
+    az appservice plan create -g educacionit-clase02 -n app-plan-educacionit-class02 --sku F1
     ```
 1. Crear WebApp en App Service
     ```pwsh
-    az webapp create -g educacionit-clase02 -n webapp-api-educacionit -p app-plan-educacionit
+    az webapp create -g educacionit-clase02 -n webapp-api-educacionit -p app-plan-educacionit-class02
     ```
 1. Agregar configuraciones para la construccion del sitio .NET durante el despliegue
     ```pwsh
@@ -35,7 +39,7 @@ permalink: class02.html
     ```
 1. Despligue de la aplicacion desde el directorio de desarrollo
     ```pwsh
-    az webapp up -g educacionit-clase02 -n webapp-api-educacionit -p app-plan-educacionit -r "dotnet:6"
+    az webapp up -g educacionit-clase02 -n webapp-api-educacionit -p app-plan-educacionit-class02 -r "dotnet:6"
     ```
 
 ### Eliminacion de los laboratorios
