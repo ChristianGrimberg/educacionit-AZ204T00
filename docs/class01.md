@@ -1,7 +1,7 @@
 ---
 title:  "Clase 1"
 description: "AZ-204T00 Developing Solutions for Microsoft Azure"
-permalink: /class01/
+permalink: class01.html
 ---
 
 [⏪ Ir al inicio](index.md)
