@@ -10,12 +10,15 @@ permalink: /class02/
 
 ## Laboratorios
 
-### Nueva aplicacion Web API
+### Grupo de recursos para los laboratorios de la Clase 02
 
 1. Crear un nuevo grupo de recursos
     ```pwsh
     az group create -n educacionit-clase02 -l EastUs2
     ```
+
+### Nueva aplicacion Web API
+
 1. Crear Plan de App Service
     ```pwsh
     az appservice plan create -g educacionit-clase02 -n app-plan-educacionit --sku F1
