@@ -24,6 +24,18 @@ layout: page
     ```pwsh
     az storage account create -g educacionit-clase02 -n educacionitclass02 --sku Standard_LRS --access-tier Hot --min-tls-version TLS1_2 --public-network-access Enabled --routing-choice MicrosoftRouting
     ```
+1. Obtener la cadena de conexion a la cuenta de almacenamiento creada
+    ```pwsh
+    $connectionString=az storage account show-connection-string -n educacionitclass02 -g educacionit-clase02 --query connectionString -o tsv
+    ```
+1. Crear el blog de contenedor de imagenes con acceso publico
+    ```pwsh
+    az storage container create -n images --public-access blob --connection-string $connectionString
+    ```
+1. Subir imagen de ejemplo al blob del contenedor
+    ```pwsh
+    az storage blob upload -c images -f labs/class02/img/sub.jpg -n sub.jpg --connection-string $connectionString
+    ```
 
 ### Nueva aplicacion Web API
 
