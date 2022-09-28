@@ -26,7 +26,8 @@
 				"ms-azuretools.vscode-azurestaticwebapps",
 				"ms-azuretools.vscode-azurevirtualmachines",
 				"ms-vscode.azure-account",
-				"eamodio.gitlens"
+				"eamodio.gitlens",
+				"ms-azuretools.vscode-azurefunctions"
 			]
 		}
 	},
