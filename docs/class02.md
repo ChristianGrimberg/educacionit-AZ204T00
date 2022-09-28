@@ -17,6 +17,13 @@ permalink: class02.html
     az group create -n educacionit-clase02 -l EastUs2
     ```
 
+### Nueva cuenta de almacenamiento
+
+1. Crear la cuenta de almacenamiento
+    ```pwsh
+    az storage account create -g educacionit-clase02 -n educacionitclass02 --sku Standard_LRS --access-tier Hot --min-tls-version TLS1_2 --public-network-access Enabled --routing-choice MicrosoftRouting
+    ```
+
 ### Nueva aplicacion Web API
 
 1. Directorio de trabajo
