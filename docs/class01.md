@@ -40,7 +40,7 @@ layout: page
     ```
 1. Agregar configuraciones para la construccion del sitio .NET durante el despliegue
     ```pwsh
-    az webapp config appsettings set -g educacionit-clase01 -n web-app-educacionit --settings "SCM_DO_BUILD_DURING_DEPLOYMENT=true"
+    az webapp config appsettings set -g educacionit-clase01 -n web-app-educacionit --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 
     az webapp config appsettings list -n webapp-api-educacionit -o table
     ```

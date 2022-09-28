@@ -20,6 +20,10 @@ layout: page
 
 ### Nueva cuenta de almacenamiento
 
+1. Directorio de trabajo
+    ```pwsh
+    cd labs/class02/img
+    ```
 1. Crear la cuenta de almacenamiento
     ```pwsh
     az storage account create -g educacionit-clase02 -n educacionitclass02 --sku Standard_LRS --access-tier Hot --min-tls-version TLS1_2 --public-network-access Enabled --routing-choice MicrosoftRouting
@@ -34,7 +38,9 @@ layout: page
     ```
 1. Subir imagen de ejemplo al blob del contenedor
     ```pwsh
-    az storage blob upload -c images -f labs/class02/img/sub.jpg -n sub.jpg --connection-string $connectionString
+    az storage blob upload -c images -f ./sub.jpg -n sub.jpg --connection-string $connectionString
+
+    az storage blob upload -c images -f ./blt.jpg -n blt.jpg --connection-string $connectionString
     ```
 
 ### Nueva aplicacion Web API
@@ -53,13 +59,34 @@ layout: page
     ```
 1. Agregar configuraciones para la construccion del sitio .NET durante el despliegue
     ```pwsh
-    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-educacionit --settings "SCM_DO_BUILD_DURING_DEPLOYMENT=true"
+    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-educacionit --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 
-    az webapp config appsettings list -n webapp-api-educacionit -o table
+    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-educacionit --settings StorageConnectionString=$connectionString
     ```
 1. Despligue de la aplicacion desde el directorio de desarrollo
     ```pwsh
     az webapp up -g educacionit-clase02 -n webapp-api-educacionit -p app-plan-educacionit-class02 -r "dotnet:6"
+    ```
+
+### Nueva aplicacion Web con consulta a Web API
+
+1. Directorio de trabajo
+    ```pwsh
+    cd labs/class02/Web
+    ```
+1. Crear WebApp en App Service
+    ```pwsh
+    az webapp create -g educacionit-clase02 -n webapp-api-sync-educacionit -p app-plan-educacionit-class02
+    ```
+1. Agregar configuraciones para la construccion del sitio .NET durante el despliegue
+    ```pwsh
+    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-sync-educacionit --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+
+    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-sync-educacionit --settings StorageConnectionString=$connectionString
+    ```
+1. Despligue de la aplicacion desde el directorio de desarrollo
+    ```pwsh
+    az webapp up -g educacionit-clase02 -n webapp-api-sync-educacionit -p app-plan-educacionit-class02 -r "dotnet:6"
     ```
 
 ### Eliminacion de los laboratorios
