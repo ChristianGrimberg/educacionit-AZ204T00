@@ -6,7 +6,7 @@ author: "Christian Grimberg"
 
 # Build settings
 #theme: jekyll-theme-cayman
-remote_theme: MicrosoftLearning/Jekyll-Theme
+remote_theme: ChristianGrimberg/Jekyll-Theme
 header_pages:
   - index.html
 plugins:
