@@ -1,11 +1,11 @@
 ---
 title:  "Modulo 1"
 description: "AZ-204T00 Developing Solutions for Microsoft Azure"
-permalink: modulo01.html
+permalink: module01.html
 layout: page
 ---
 
-[⏪ Ir al inicio](index.md)
+[⏪ Ir al inicio](../index.md)
 
 # Explorar Azure App Service
 ## Examinar Azure App Service

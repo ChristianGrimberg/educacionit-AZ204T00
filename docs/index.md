@@ -6,7 +6,7 @@ layout: home
 
 # Modulos
 
-* [Modulo 1: Explorar Azure App Service](modulo1.md)
+* [Modulo 1: Explorar Azure App Service](modules/module01.md)
 
 # Clases
 
