@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "educacionit_AZ204T00": {
+    "function_c": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7249",
+      "commandLineArgs": "--port 7209",
       "launchBrowser": false
     }
   }
