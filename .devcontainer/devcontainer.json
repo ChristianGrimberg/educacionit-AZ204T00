@@ -19,7 +19,9 @@
 				"ms-azuretools.vscode-azurevirtualmachines",
 				"ms-vscode.azure-account",
 				"eamodio.gitlens",
-				"ms-azuretools.vscode-azurefunctions"
+				"ms-azuretools.vscode-azurefunctions",
+				"mongodb.mongodb-vscode",
+				"ms-mssql.mssql"
 			]
 		}
 	},
