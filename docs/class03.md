@@ -5,7 +5,7 @@ permalink: class03.html
 layout: page
 ---
 
-[⏪ Ir al inicio](../index.md)
+[⏪ Ir al inicio](index.md)
 
 # Clase 3
 
@@ -55,4 +55,4 @@ layout: page
     az group delete -n educacionit-clase03 --no-wait
     ```
 
-[⏪ Ir al inicio](../index.md)
+[⏪ Ir al inicio](index.md)

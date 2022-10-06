@@ -5,7 +5,7 @@ permalink: class04.html
 layout: page
 ---
 
-[⏪ Ir al inicio](../index.md)
+[⏪ Ir al inicio](index.md)
 
 # Clase 4
 
@@ -83,4 +83,4 @@ $demoContainer="demo-container"
     az group delete -n $resourceGroup --no-wait
     ```
 
-[⏪ Ir al inicio](../index.md)
+[⏪ Ir al inicio](index.md)
