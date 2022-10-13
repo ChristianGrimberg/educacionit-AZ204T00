@@ -33,7 +33,7 @@ $images="images"
     ```
 1. Directorio de trabajo
     ```pwsh
-    cd labs/class05/AdventureWorks/
+    cd labs/class05/AdventureWorks/AdventureWorks.Upload/
     ```
 1. Crear la cuenta de almacenamiento
     ```pwsh
@@ -47,3 +47,16 @@ $images="images"
     ```pwsh
     az storage container create -n $images --connection-string $connectionString --public-access blob
     ```
+1. Insertar el paquete de Azure Cosmos
+    ```pwsh
+     dotnet add package Microsoft.Azure.Cosmos
+    ```
+
+## Eliminacion de los recursos en Azure
+
+1. Eliminacion del grupo de recursos
+    ```pwsh
+    az group delete -n $resourceGroup --no-wait
+    ```
+
+[⏪ Ir al inicio](index.md)
