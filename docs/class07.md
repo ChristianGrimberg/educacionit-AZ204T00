@@ -6,4 +6,6 @@ dotnet new mvc --auth SingleOrg --client-id b85eb39c-e04a-4ed3-a3e2-0a7837128e48
 az webapp config appsettings set -g Az204ChristianGrimberg -n AwesomeAppChristianGrimberg --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 
 az webapp up -g Az204ChristianGrimberg -n AwesomeAppChristianGrimberg -p AppServicePlanChristianGrimnberg -r "dotnet:6"
+
+az group delete -n Az204ChristianGrimberg --no-wait
 ```
