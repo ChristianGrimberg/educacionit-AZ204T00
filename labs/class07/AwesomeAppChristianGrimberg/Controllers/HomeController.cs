@@ -5,7 +5,6 @@ using AwesomeAppChristianGrimberg.Models;
 
 namespace AwesomeAppChristianGrimberg.Controllers;
 
-[Authorize]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -15,12 +14,20 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    [AllowAnonymous]
     public IActionResult Index()
     {
         return View();
     }
 
+    [Authorize]
     public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [Authorize]
+    public IActionResult Secreto()
     {
         return View();
     }
