@@ -465,3 +465,8 @@ _site
 ##
 core
 config
+
+##
+## Azure files
+##
+.azure/
