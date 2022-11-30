@@ -1,3 +1,14 @@
+---
+title:  "Clase 7"
+description: "AZ-204T00 Developing Solutions for Microsoft Azure"
+permalink: class07.html
+layout: page
+---
+
+[⏪ Ir al inicio](index.md)
+
+# Clase 7
+
 ```pwsh
 cd labs/class07/
 

@@ -14,3 +14,6 @@ layout: home
 * [Clase 2](class02.md)
 * [Clase 3](class03.md)
 * [Clase 4](class04.md)
+* [Clase 5](class05.md)
+* [Clase 7](class07.md)
+* [Clase 12](class12.md)
