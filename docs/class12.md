@@ -26,7 +26,9 @@ $appPlan="plan-clase-12"
     az group create -n $resourceGroup -l EastUs2
     ```
 
-### Nueva aplicación de consola para conectar con Application Insights
+## Trabajando con Application Insights
+
+### Nueva aplicación de consola y publicacion
 
 1. Directorio de trabajo
     ```pwsh
