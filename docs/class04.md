@@ -13,7 +13,7 @@ layout: page
 
 ### Diagrama de arquitectura
 
-![Diagrama](../img/Lab03-Diagram.png)
+![Diagrama](img/Lab03-Diagram.png)
 
 ## Preparacion del ambiente en Azure
 ### Variables a utilizar
