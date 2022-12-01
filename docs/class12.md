@@ -45,6 +45,7 @@ $appPlan="plan-clase-12"
     dotnet add package Microsoft.ApplicationInsights.AspNetCore
     dotnet add package Microsoft.ApplicationInsights.PerfCounterCollector
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
+    dotnet add package Microsoft.Extensions.Logging.ApplicationInsights
     ```
 1. Agregar configuraciones para la construccion del sitio .NET durante el despliegue
     ```pwsh
