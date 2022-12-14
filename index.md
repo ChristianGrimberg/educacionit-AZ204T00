@@ -7,10 +7,10 @@ layout: home
 
 ## Recursos
 
-* Acceso al material teorico en [Skillpipe](https://www.skillpipe.com/#/bookshelf/books)
-* Descarga de laboratorios base desde [Microsoft Learning AZ-204](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure/archive/refs/heads/master.zip)
+* Acceso al material teorico oficial en [Skillpipe](https://www.skillpipe.com/#/bookshelf/books)
+* Descarga de laboratorios base desde [Microsoft Learning AZ-204](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure.es-es/tree/main/Allfiles)
 
-## Documentación relacionada
+## Documentación relacionada del sitio de [Microsoft Docs](https://learn.microsoft.com/es-es/)
 
 {% assign modules = site.pages | where_exp: "page", "page.url contains '/pages/modules'" %}
 {% for activity in modules %}{% if activity.document.az204Module %}* [{{ activity.document.az204Module }}]({{ site.github.url }}{{ activity.url }})
