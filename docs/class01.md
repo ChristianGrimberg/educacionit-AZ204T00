@@ -1,12 +1,8 @@
 ---
 lab:
-  az204Title: 'Lab 01: Build a web application on Azure platform as a service offerings'
-  az020Title: 'Lab 01: Build a web application on Azure platform as a service offerings'
-  az204Module: 'Module 01: Create Azure App Service Web Apps'
-  az020Module: 'Module 01: Create Azure App Service Web Apps'
+  az204Title: 'Clase 1: Build a web application on Azure platform as a service offerings'
+  az204Module: 'Módulo 1: Crear aplicaciones de Azure App Service'
 ---
-
-[⏪ Ir al inicio](index.md)
 
 # Clase 1
 
@@ -56,5 +52,3 @@ lab:
     ```pwsh
     az group delete -n educacionit-clase01 --no-wait
     ```
-
-[⏪ Ir al inicio](index.md)
