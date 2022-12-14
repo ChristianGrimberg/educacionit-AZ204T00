@@ -9,5 +9,5 @@ layout: home
 {% assign modules = site.pages | where_exp: "page", "page.url contains '/pages/modules'" %}
 | Módulo | Clase |
 | ------ | ----- |
-{% for activity in classes %}{% if activity.document.az204Module %}| {{ activity.document.az204Module }} | [{{ activity.document.az204Title }}]({{ site.github.url }}{{ activity.url }}) |
+{% for activity in classes %}{% if activity.document.az204Title %}| {{ activity.document.az204Title }} | [{{ activity.document.az204Class }}]({{ site.github.url }}{{ activity.url }}) |
 {% endif %}{% endfor %}
