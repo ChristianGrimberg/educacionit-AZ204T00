@@ -1,11 +1,7 @@
 ---
-title:  "Modulo 1"
-description: "AZ-204T00 Developing Solutions for Microsoft Azure"
-permalink: module01.html
-layout: page
+document:
+  az204Module: 'Módulo 1: Explorar Azure App Service'
 ---
-
-[⏪ Ir al inicio](index.md)
 
 # Explorar Azure App Service
 ## Examinar Azure App Service

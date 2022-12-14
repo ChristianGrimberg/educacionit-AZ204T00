@@ -1,16 +1,10 @@
 ---
 document:
-  az204Class: 'Clase 1: Cree una aplicación web con la propuesta de Azure de Plataforma como Servicio (Azure PaaS)'
-  az204Title: 'Módulo 1: Crear aplicaciones de Azure App Service'
+  az204Class: 'Clase 1: Cree una aplicación web con la oferta de Azure de Plataforma como Servicio (Azure PaaS)'
+  az204Title: 'Módulo 1'
 ---
 
-# Clase 1: Cree una aplicación web con la propuesta de Azure de Plataforma como Servicio (Azure PaaS)
-
-## Recursos
-
-* Acceso al material teorico en [Skillpipe](https://www.skillpipe.com/#/bookshelf/books)
-* Descarga de laboratorios base desde [Microsoft Learning AZ-204](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure/archive/refs/heads/master.zip)
-
+# Clase 1: Cree una aplicación web con la oferta de Azure de Plataforma como Servicio (Azure PaaS)
 
 ## Laboratorios
 
