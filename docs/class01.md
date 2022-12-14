@@ -3,6 +3,11 @@ title:  "Clase 1"
 description: "AZ-204T00 Developing Solutions for Microsoft Azure"
 permalink: class01.html
 layout: page
+lab:
+  az204Title: 'Lab 01: Build a web application on Azure platform as a service offerings'
+  az020Title: 'Lab 01: Build a web application on Azure platform as a service offerings'
+  az204Module: 'Module 01: Create Azure App Service Web Apps'
+  az020Module: 'Module 01: Create Azure App Service Web Apps'
 ---
 
 [⏪ Ir al inicio](index.md)
