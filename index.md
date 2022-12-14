@@ -18,7 +18,7 @@ layout: home
 * [Clase 7](class07.md)
 * [Clase 12](class12.md)
 
-{% assign labs = site.pages | where_exp: "page", "page.url contains '/'" %}
+{% assign labs = site.pages | where_exp: "page", "page.url contains '/docs/'" %}
 | Módulo | Laboratorio |
 | --- | --- |
 {% for activity in labs %}{% if activity.lab.az204Module %}| {{ activity.lab.az204Module }} | [{{ activity.lab.az204Title }}]({{ site.github.url }}{{ activity.url }}) |
