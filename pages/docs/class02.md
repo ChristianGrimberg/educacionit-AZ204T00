@@ -1,13 +1,10 @@
 ---
-title:  "Clase 2"
-description: "AZ-204T00 Developing Solutions for Microsoft Azure"
-permalink: class02.html
-layout: page
+document:
+  az204Class: 'Clase 2: Implementar la lógica de procesamiento de tareas mediante Azure Functions'
+  az204Title: 'Módulo 2: Implementar funciones de Azure'
 ---
 
-[⏪ Ir al inicio](index.md)
-
-# Clase 2
+# Clase 2: Implementar la lógica de procesamiento de tareas mediante Azure Functions
 
 ## Laboratorios
 
@@ -138,5 +135,3 @@ layout: page
     ```pwsh
     az group delete -n educacionit-clase02 --no-wait
     ```
-
-[⏪ Ir al inicio](index.md)

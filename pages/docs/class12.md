@@ -1,11 +1,8 @@
 ---
-title:  "Clase 12"
-description: "AZ-204T00 Developing Solutions for Microsoft Azure"
-permalink: class12.html
-layout: page
+document:
+  az204Class: 'Clase 12'
+  az204Title: 'Módulo 12'
 ---
-
-[⏪ Ir al inicio](index.md)
 
 # Clase 12
 
@@ -64,5 +61,3 @@ $appPlan="plan-clase-12"
     ```pwsh
     az group delete -n $resourceGroup --no-wait
     ```
-
-[⏪ Ir al inicio](index.md)

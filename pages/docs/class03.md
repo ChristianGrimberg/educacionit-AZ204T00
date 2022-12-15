@@ -1,13 +1,10 @@
 ---
-title:  "Clase 3"
-description: "AZ-204T00 Developing Solutions for Microsoft Azure"
-permalink: class03.html
-layout: page
+document:
+  az204Class: 'Clase 3: Recuperar recursos y metadatos de Azure Storage mediante el SDK de Azure Storage para .NET'
+  az204Title: 'Módulo 3: Desarrollar soluciones que utilicen el almacenamiento de blobs'
 ---
 
-[⏪ Ir al inicio](index.md)
-
-# Clase 3
+# Clase 3: Recuperar recursos y metadatos de Azure Storage mediante el SDK de Azure Storage para .NET
 
 ## Laboratorios
 
@@ -54,5 +51,3 @@ layout: page
     ```pwsh
     az group delete -n educacionit-clase03 --no-wait
     ```
-
-[⏪ Ir al inicio](index.md)

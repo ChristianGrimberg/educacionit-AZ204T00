@@ -1,11 +1,8 @@
 ---
-title:  "Clase 7"
-description: "AZ-204T00 Developing Solutions for Microsoft Azure"
-permalink: class07.html
-layout: page
+document:
+  az204Class: 'Clase 7'
+  az204Title: 'Módulo 7'
 ---
-
-[⏪ Ir al inicio](index.md)
 
 # Clase 7
 

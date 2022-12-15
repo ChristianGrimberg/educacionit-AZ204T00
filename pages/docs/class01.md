@@ -1,7 +1,7 @@
 ---
 document:
   az204Class: 'Clase 1: Cree una aplicación web con la oferta de Azure de Plataforma como Servicio (Azure PaaS)'
-  az204Title: 'Módulo 1'
+  az204Title: 'Módulo 1: Crear aplicaciones web con Azure App Service'
 ---
 
 # Clase 1: Cree una aplicación web con la oferta de Azure de Plataforma como Servicio (Azure PaaS)

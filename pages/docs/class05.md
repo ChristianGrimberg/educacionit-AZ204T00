@@ -1,11 +1,8 @@
 ---
-title:  "Clase 5"
-description: "AZ-204T00 Developing Solutions for Microsoft Azure"
-permalink: class05.html
-layout: page
+document:
+  az204Class: 'Clase 5'
+  az204Title: 'Módulo 5'
 ---
-
-[⏪ Ir al inicio](index.md)
 
 # Clase 5
 
@@ -58,5 +55,3 @@ $images="images"
     ```pwsh
     az group delete -n $resourceGroup --no-wait
     ```
-
-[⏪ Ir al inicio](index.md)
