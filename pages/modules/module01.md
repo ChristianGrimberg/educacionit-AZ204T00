@@ -38,5 +38,3 @@ App Service en Linux tiene algunas limitaciones:
 * No se pueden mezclar las aplicaciones Windows y Linux en el mismo plan de App Service.
 * Históricamente, no se podían mezclar aplicaciones de Windows y Linux en el mismo grupo de recursos. Sin embargo, todos los grupos de recursos creados a partir del 21 de enero de 2021 admiten este escenario. La compatibilidad con los grupos de recursos creados antes del 21 de enero de 2021 se implementará en breve en las regiones de Azure (incluidas las regiones de nube nacional).
 * Azure Portal solo muestra las características que funcionan actualmente para las aplicaciones Linux. A medida que se habiliten las características, se activarán en el portal.
-
-[⏪ Ir al inicio](index.md)
