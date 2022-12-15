@@ -1,7 +1,6 @@
 ---
 permalink: index.html
 layout: home
-title: 'AZ-204'
 ---
 
 # AZ-204: Desarrollo de soluciones para Microsoft Azure
