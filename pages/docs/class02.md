@@ -1,16 +1,22 @@
 ---
 document:
-  az204Class: 'Clase 2: Implementar la lógica de procesamiento de tareas mediante Azure Functions'
-  az204Title: 'Módulo 2: Implementar funciones de Azure'
+  az204Class: 'Clase 2'
+  az204Title: 'Módulo 1: Crear aplicaciones web con Azure App Service'
 ---
 
-# Clase 2: Implementar la lógica de procesamiento de tareas mediante Azure Functions
+# Clase 2
 
-## Laboratorios
-
-### Diagrama de arquitectura
+## Diagrama de arquitectura
 
 ![Diagrama de arquitectura que muestra un usuario que compila una aplicación web en la oferta de Azure con Plataforma como Servicio](../img/Lab01-Diagram.png)
+
+## Creación del ambiente para el laboratorio
+
+### Autenticación con Azure CLI
+
+```pwsh
+az login
+```
 
 ### Grupo de recursos para los laboratorios
 

@@ -1,10 +1,10 @@
 ---
 document:
-  az204Class: 'Clase 1: Cree una aplicación web con la oferta de Azure de Plataforma como Servicio (Azure PaaS)'
+  az204Class: 'Clase 1: Cree una aplicación web de .NET con la oferta de Azure de Plataforma como Servicio'
   az204Title: 'Módulo 1: Crear aplicaciones web con Azure App Service'
 ---
 
-# Clase 1: Cree una aplicación web con la oferta de Azure de Plataforma como Servicio (Azure PaaS)
+# Clase 1: Cree una aplicación web de .NET con la oferta de Azure de Plataforma como Servicio
 
 ## Creación del ambiente para el laboratorio
 
@@ -31,7 +31,7 @@ $appPlan="app-plan-educacionit-class01"
     az group list -o table
     ```
 
-## Nueva aplicacion Web de .NET
+## Nueva Aplicacion Web de .NET
 
 1. Directorio de trabajo
     ```pwsh

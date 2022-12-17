@@ -1,7 +1,7 @@
 ---
 document:
   az204Class: 'Clase 4'
-  az204Title: 'Módulo 4'
+  az204Title: 'Módulo'
 ---
 
 # Clase 4

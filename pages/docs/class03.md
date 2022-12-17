@@ -1,10 +1,10 @@
 ---
 document:
-  az204Class: 'Clase 3: Recuperar recursos y metadatos de Azure Storage mediante el SDK de Azure Storage para .NET'
-  az204Title: 'Módulo 3: Desarrollar soluciones que utilicen el almacenamiento de blobs'
+  az204Class: 'Clase 3'
+  az204Title: 'Módulo'
 ---
 
-# Clase 3: Recuperar recursos y metadatos de Azure Storage mediante el SDK de Azure Storage para .NET
+# Clase 3
 
 ## Laboratorios
 
