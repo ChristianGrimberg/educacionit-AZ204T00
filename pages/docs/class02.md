@@ -8,6 +8,10 @@ document:
 
 ## Laboratorios
 
+### Diagrama de arquitectura
+
+![Diagrama de arquitectura que muestra un usuario que compila una aplicación web en la oferta de Azure con Plataforma como Servicio](../img/Lab01-Diagram.png)
+
 ### Grupo de recursos para los laboratorios
 
 1. Crear un nuevo grupo de recursos
