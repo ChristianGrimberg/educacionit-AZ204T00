@@ -6,7 +6,7 @@ document:
 
 # Clase 1: Cree una aplicación web con la oferta de Azure de Plataforma como Servicio (Azure PaaS)
 
-## Laboratorios
+## Creación del ambiente para el laboratorio
 
 ### Autenticación con Azure CLI
 
@@ -14,7 +14,7 @@ document:
 az login
 ```
 
-### Variables a utilizar durante los laboratorios
+### Variables a utilizar
 
 ```pwsh
 $resourceGroup="educacionit-clase01"
@@ -22,7 +22,7 @@ $webApp="web-app-educacionit"
 $appPlan="app-plan-educacionit-class01"
 ```
 
-### Grupo de recursos para los laboratorios
+### Grupo de recursos
 
 1. Crear un nuevo grupo de recursos
     ```pwsh
@@ -31,7 +31,7 @@ $appPlan="app-plan-educacionit-class01"
     az group list -o table
     ```
 
-### Nueva aplicacion Web de .NET
+## Nueva aplicacion Web de .NET
 
 1. Directorio de trabajo
     ```pwsh
@@ -72,7 +72,7 @@ $appPlan="app-plan-educacionit-class01"
     az webapp up -g $resourceGroup -n $webApp -p $appPlan -r "dotnet:6"
     ```
 
-### Eliminacion de los laboratorios
+## Eliminacion del ambiente del laboratorio
 
 1. Eliminacion del grupo de recursos
     ```pwsh
