@@ -8,21 +8,19 @@ document:
 
 ## Creación del ambiente para el laboratorio
 
-### Autenticación con Azure CLI
+1. Autenticación con Azure CLI
 
-```pwsh
-az login
-```
+    ```pwsh
+    az login
+    ```
 
-### Variables a utilizar
+1. Variables a utilizar
 
-```pwsh
-$resourceGroup="educacionit-clase01"
-$webApp="web-app-educacionit"
-$appPlan="app-plan-educacionit-class01"
-```
-
-### Grupo de recursos
+    ```pwsh
+    $resourceGroup="educacionit-clase01"
+    $webApp="web-app-educacionit"
+    $appPlan="app-plan-educacionit-class01"
+    ```
 
 1. Crear un nuevo grupo de recursos
     ```pwsh
@@ -35,7 +33,9 @@ $appPlan="app-plan-educacionit-class01"
 
 1. Directorio de trabajo
     ```pwsh
-    cd labs/class01/Web
+    mkdir labs/class01/WebApp
+
+    cd labs/class01/WebApp
     ```
 1. Agregar los certificados HTTPS para el entorno de pruebas local
     ```pwsh

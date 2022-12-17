@@ -12,11 +12,24 @@ document:
 
 ## Creación del ambiente para el laboratorio
 
-### Autenticación con Azure CLI
+1. Autenticación con Azure CLI
 
-```pwsh
-az login
-```
+    ```pwsh
+    az login
+    ```
+
+1. Variables a utilizar
+
+    ```pwsh
+    $resourceGroup="educacionit-clase02"
+    ```
+
+1. Crear un nuevo grupo de recursos
+    ```pwsh
+    az group create -n $resourceGroup -l EastUs2
+
+    az group list -o table
+    ```
 
 ### Grupo de recursos para los laboratorios
 
