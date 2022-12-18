@@ -1,10 +1,10 @@
 ---
 document:
-  az204Class: 'Clase 2'
+  az204Class: 'Clase 2: Compilación de una aplicación web con la oferta de Plataforma como Servicio de Azure'
   az204Title: 'Módulo 1: Crear aplicaciones web con Azure App Service'
 ---
 
-# Clase 2
+# Clase 2: Compilación de una aplicación web con la oferta de Plataforma como Servicio de Azure
 
 ## Diagrama de arquitectura
 
@@ -13,17 +13,19 @@ document:
 ## Creación del ambiente para el laboratorio
 
 1. Autenticación con Azure CLI
-
     ```pwsh
     az login
     ```
-
 1. Variables a utilizar
 
     ```pwsh
     $resourceGroup="educacionit-clase02"
+    $storageAccount="storageeducacionitclass02"
+    $appPlan="app-plan-educacionit-class02"
+    $webAPI="webapp-api-educacionit"
+    $webApp="webapp-api-sync-educacionit"
+    $keyVault="kv-clase02"
     ```
-
 1. Crear un nuevo grupo de recursos
     ```pwsh
     az group create -n $resourceGroup -l EastUs2
@@ -31,18 +33,7 @@ document:
     az group list -o table
     ```
 
-### Grupo de recursos para los laboratorios
-
-1. Crear un nuevo grupo de recursos
-    ```pwsh
-    az group create -n educacionit-clase02 -l EastUs2
-    ```
-1. Crear Plan de App Service
-    ```pwsh
-    az appservice plan create -g educacionit-clase02 -n app-plan-educacionit-class02 --sku F1
-    ```
-
-### Nueva cuenta de almacenamiento
+## Creación de una Cuenta de Almacenamiento
 
 1. Directorio de trabajo
     ```pwsh
@@ -50,11 +41,11 @@ document:
     ```
 1. Crear la cuenta de almacenamiento
     ```pwsh
-    az storage account create -g educacionit-clase02 -n educacionitclass02 --sku Standard_LRS --access-tier Hot --min-tls-version TLS1_2 --public-network-access Enabled --routing-choice MicrosoftRouting
+    az storage account create -g $resourceGroup -n $storageAccount --sku Standard_LRS --access-tier Hot --min-tls-version TLS1_2 --public-network-access Enabled --routing-choice MicrosoftRouting
     ```
 1. Obtener la cadena de conexion a la cuenta de almacenamiento creada
     ```pwsh
-    $connectionString=az storage account show-connection-string -n educacionitclass02 -g educacionit-clase02 --query connectionString -o tsv
+    $connectionString=az storage account show-connection-string -n $storageAccount -g $resourceGroup --query connectionString -o tsv
     ```
 1. Crear el blob de contenedor de imagenes con acceso publico
     ```pwsh
@@ -67,28 +58,35 @@ document:
     az storage blob upload -c images -f ./blt.jpg -n blt.jpg --connection-string $connectionString
     ```
 
-### Nueva aplicacion Web API
+## Aplicacion WebAPI de .NET de demostración
 
 1. Directorio de trabajo
     ```pwsh
+    mkdir labs/class02/Api
+
     cd labs/class02/Api
+    ```
+1. Copiar recursos de demostración desde `Allfiles\Labs\01\Starter\API` a `labs/class02/Api`.
+1. Crear Plan de App Service
+    ```pwsh
+    az appservice plan create -g $resourceGroup -n $appPlan --sku F1
     ```
 1. Crear WebApp en App Service
     ```pwsh
-    az webapp create -g educacionit-clase02 -n webapp-api-educacionit -p app-plan-educacionit-class02 -r "dotnet:6"
+    az webapp create -g $resourceGroup -n $webAPI -p $appPlan -r "dotnet:6"
     ```
 1. Agregar configuraciones para la construccion del sitio .NET durante el despliegue
     ```pwsh
-    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-educacionit --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+    az webapp config appsettings set -g $resourceGroup -n $webAPI --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 
-    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-educacionit --settings StorageConnectionString=$connectionString
+    az webapp config appsettings set -g $resourceGroup -n $webAPI --settings StorageConnectionString=$connectionString
     ```
 1. Despligue de la aplicacion desde el directorio de desarrollo
     ```pwsh
-    az webapp up -g educacionit-clase02 -n webapp-api-educacionit -p app-plan-educacionit-class02 -r "dotnet:6"
+    az webapp up -g $resourceGroup -n $webAPI -p $appPlan -r "dotnet:6"
     ```
 
-### Nueva aplicacion Web con consulta a Web API
+## Aplicacion Web de .NET de demostración
 
 1. Directorio de trabajo
     ```pwsh
@@ -96,65 +94,65 @@ document:
     ```
 1. Crear WebApp en App Service
     ```pwsh
-    az webapp create -g educacionit-clase02 -n webapp-api-sync-educacionit -p app-plan-educacionit-class02 -r "dotnet:6"
+    az webapp create -g $resourceGroup -n $webApp -p $appPlan -r "dotnet:6"
     ```
 1. Agregar configuraciones para la construccion del sitio .NET durante el despliegue
     ```pwsh
-    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-sync-educacionit --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+    az webapp config appsettings set -g $resourceGroup -n $webApp --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 
-    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-sync-educacionit --settings ApiUrl=https://webapp-api-educacionit.azurewebsites.net/
+    az webapp config appsettings set -g $resourceGroup -n $webApp --settings ApiUrl=https://$webAPI.azurewebsites.net/
     ```
 1. Despligue de la aplicacion desde el directorio de desarrollo
     ```pwsh
-    az webapp up -g educacionit-clase02 -n webapp-api-sync-educacionit -p app-plan-educacionit-class02 -r "dotnet:6"
+    az webapp up -g $resourceGroup -n $webApp -p $appPlan -r "dotnet:6"
     ```
 
-### Uso de Key Vault para la administracion de configuracion de las aplicaciones
+## Azure Key Vault para la administracion de configuracion segura
 
 1. Creacion del Key Vault
     ```pwsh
-    az keyvault create -g educacionit-clase02 -n kv-clase02 -l EastUs2 --sku Standard --retention-days 90 --enable-rbac-authorization false --public-network-access Enabled
+    az keyvault create -g $resourceGroup -n $keyVault -l EastUs2 --sku Standard --retention-days 90 --enable-rbac-authorization false --public-network-access Enabled
     ```
 1. Crear un secreto para la cadena de conexion de la cuenta de almacenamiento
     ```pwsh
-    az keyvault secret set -n StorageAccount --vault-name kv-clase02 --value $connectionString
+    az keyvault secret set -n StorageAccount --vault-name $keyVault --value $connectionString
     ```
 1. Crear un secreto para la URL del Web API
     ```pwsh
-    az keyvault secret set -n BackendUrl --vault-name kv-clase02 --value https://webapp-api-educacionit.azurewebsites.net/
+    az keyvault secret set -n BackendUrl --vault-name $keyVault --value https://$webAPI.azurewebsites.net/
     ```
 1. Habilitar la asignacion de permisos de identidad hacia ambos sitios
     ```pwsh
-    az webapp identity assign -g educacionit-clase02 -n webapp-api-educacionit
+    az webapp identity assign -g $resourceGroup -n $webAPI
 
-    az webapp identity assign -g educacionit-clase02 -n webapp-api-sync-educacionit
+    az webapp identity assign -g $resourceGroup -n $webApp
     ```
 1. Obtener el ID de la aplicacion Web API
     ```pwsh
-    $apiPrincipalId=az webapp identity show -n webapp-api-educacionit -g educacionit-clase02 --query "principalId" -o tsv
+    $apiPrincipalId=az webapp identity show -n $webAPI -g $resourceGroup --query "principalId" -o tsv
     ```
 1. Obtener el ID de la aplicacion Web
     ```pwsh
-    $systemPrincipalId=az webapp identity show -n webapp-api-sync-educacionit -g educacionit-clase02 --query "principalId" -o tsv
+    $systemPrincipalId=az webapp identity show -n $webApp -g $resourceGroup --query "principalId" -o tsv
     ```
 1. Configurar el acceso a los secretos segun cada la aplicacion
     ```pwsh
-    az keyvault set-policy -n kv-clase02 --secret-permissions get list --object-id $apiPrincipalId
+    az keyvault set-policy -n $keyVault --secret-permissions get list --object-id $apiPrincipalId
 
-    az keyvault set-policy -n kv-clase02 --secret-permissions get list --object-id $systemPrincipalId
+    az keyvault set-policy -n $keyVault --secret-permissions get list --object-id $systemPrincipalId
     ```
 1. Modificar el valor de la configuracion del Web API
     ```pwsh
-    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-educacionit --settings "StorageConnectionString=@Microsoft.KeyVault(SecretUri=https://kv-clase02.vault.azure.net/secrets/StorageAccount)"
+    az webapp config appsettings set -g $resourceGroup -n $webAPI --settings "StorageConnectionString=@Microsoft.KeyVault(SecretUri=https://$keyVault.vault.azure.net/secrets/StorageAccount)"
     ```
 1. Modificar el valor de la configuracion del sitio Web conectado a Web API
     ```pwsh
-    az webapp config appsettings set -g educacionit-clase02 -n webapp-api-sync-educacionit --settings "ApiUrl=@Microsoft.KeyVault(SecretUri=https://kv-clase02.vault.azure.net/secrets/BackendUrl)"
+    az webapp config appsettings set -g $resourceGroup -n $webApp --settings "ApiUrl=@Microsoft.KeyVault(SecretUri=https://$keyVault.vault.azure.net/secrets/BackendUrl)"
     ```
 
-### Eliminacion de los laboratorios
+## Eliminacion del ambiente del laboratorio
 
 1. Eliminacion del grupo de recursos
     ```pwsh
-    az group delete -n educacionit-clase02 --no-wait
+    az group delete -n $resourceGroup --no-wait
     ```

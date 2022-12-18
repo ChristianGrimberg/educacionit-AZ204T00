@@ -1,27 +1,23 @@
 ---
 document:
-  az204Class: 'Clase 1: Cree una aplicación web de .NET con la oferta de Azure de Plataforma como Servicio'
+  az204Class: 'Clase 1: Crear la primera aplicación web de .NET con Azure App Service'
   az204Title: 'Módulo 1: Crear aplicaciones web con Azure App Service'
 ---
 
-# Clase 1: Cree una aplicación web de .NET con la oferta de Azure de Plataforma como Servicio
+# Clase 1: Crear la primera aplicación web de .NET con Azure App Service
 
 ## Creación del ambiente para el laboratorio
 
 1. Autenticación con Azure CLI
-
     ```pwsh
     az login
     ```
-
 1. Variables a utilizar
-
     ```pwsh
     $resourceGroup="educacionit-clase01"
     $webApp="web-app-educacionit"
     $appPlan="app-plan-educacionit-class01"
     ```
-
 1. Crear un nuevo grupo de recursos
     ```pwsh
     az group create -n $resourceGroup -l EastUs2
